@@ -71,6 +71,7 @@ const Contact = () => {
 
 
   return (
+    <>
     <div
       className={`xl:mt-12 flex xl:flex-row flex-col-reverse gap-10 overflow-hidden`}
     >
@@ -138,7 +139,42 @@ const Contact = () => {
         <EarthCanvas />
       </motion.div>
     </div>
+    
+    <br/>
+
+    {/* At the end */}
+    <div className='text-center text-white font-medium'>
+        <a
+          href='https://www.linkedin.com/in/srikanth-ganti98/'
+          target='_blank'
+          rel='noopener noreferrer'
+          className='text-gray-300 hover:underline mx-4'
+        >
+          LinkedIn
+        </a>
+        <a
+          href='https://github.com/Srikanth-Ganti7'
+          target='_blank'
+          rel='noopener noreferrer'
+          className='text-gray-300 hover:underline mx-4'
+        >
+          GitHub
+        </a>
+        <a
+          href='https://www.instagram.com/arctic_colossus/'
+          target='_blank'
+          rel='noopener noreferrer'
+          className='text-gray-300 hover:underline mx-4'
+        >
+          Instagram
+        </a>
+      </div>
+
+    
+    </>
   )
+  
+  
 }
 
 export default SectionWrapper(Contact, "contact");
