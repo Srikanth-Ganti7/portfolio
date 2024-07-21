@@ -6,7 +6,7 @@ import CanvasLoader from "../Loader";
 import { ShadowMesh } from 'three/examples/jsm/Addons.js';
 
 const Computers = ({ isMobile }) => {
-  const computer = useGLTF("./desktop_pc/scene.gltf");
+  const computer = useGLTF("./lego_space/scene.gltf");
 
   return (
     
@@ -17,16 +17,18 @@ const Computers = ({ isMobile }) => {
         position={[-20, 50, 10]}
         angle={0.12}
         penumbra={1}
-        intensity={10000}
+        intensity={1000}
         castShadow
         shadow-mapSize={1024}
       />
-      <pointLight intensity={1} />
+      <pointLight intensity={2} />
       <primitive
         object={computer.scene}
-        scale={isMobile ? 0.7 : 0.75}
-        position={isMobile ? [0, -3, -2.2] : [0, -3.25, -1.5]}
-        rotation={[-0.01, -0.2, -0.1]}
+        scale={isMobile ? 0.055 : 0.06}
+        //position={isMobile ? [0, -3, -2.2] : [0, -3.25, -1.5]}
+        position={isMobile ? [0, -1.5, 0] : [0, -3.5, -0.9]}
+        //rotation={[-0.01, -0.2, -0.1]}
+        rotation={[0.6, 2, -0.9]}
       />
     </mesh>
   );
@@ -52,6 +54,7 @@ const ComputersCanvas = () => {
   }, [])
 
 return (
+  //<div className="w-full h-auto" style={{ maxWidth: '600px', margin: '0 auto' }}>
   <Canvas
       frameloop='demand'
       shadows
@@ -64,11 +67,12 @@ return (
           maxPolarAngle={Math.PI / 2}
           minPolarAngle={Math.PI / 2}
         />
-        <Computers isMobile={isMobile}/>
+        <Computers isMobile={isMobile} />
       </Suspense>
 
       <Preload all />
     </Canvas>
+  //</div>
 
 
 )
