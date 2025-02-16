@@ -1,18 +1,20 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { Link } from "react-router-dom";
 
 import { styles } from "../styles";
 import { navLinks } from "../constants";
 import { logo, menu, close } from "../assets";
 
-import resumePdf from "../resume/Balasai Srikanth Ganti-Resume-401.pdf";
-
+import sdeResume from '../resume/Balasai Srikanth Ganti-Resume-602- SDE.pdf';
+import uxResume from '../resume/Balasai Srikanth Ganti-Resume-603-FrontEnd.pdf';
 
 
 const Navbar = () => {
   const [active, setActive] = useState("");
   const [toggle, setToggle] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [showModal, setShowModal] = useState(false);
+  const modalRef = useRef();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -24,26 +26,48 @@ const Navbar = () => {
       }
     };
 
+    const handleClickOutside = (event) => {
+      if (modalRef.current && !modalRef.current.contains(event.target)) {
+        setShowModal(false);
+      }
+      if (!event.target.closest('.menu-toggle') && !event.target.closest('.mobile-menu')) {
+        setToggle(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
     window.addEventListener("scroll", handleScroll);
 
-    return () => window.removeEventListener("scroll", handleScroll);
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
   }, []);
 
-  const handleResumeDownload = () => {
-    // Trigger the download
+  const handleResumeDownload = (resumeType) => {
+    let resumeUrl = '';
+    let filename = '';
+    if (resumeType === 'sde') {
+      resumeUrl = sdeResume;
+      filename = 'Balasai Srikanth Ganti-Resume-602-SDE.pdf';  // Proper filename
+    } else if (resumeType === 'ux') {
+      resumeUrl = uxResume;
+      filename = 'Balasai Srikanth Ganti-Resume-603-FrontEnd.pdf';  // Proper filename
+    }
+  
     const link = document.createElement("a");
-    link.href = resumePdf;
-    link.download = "Balasai_Srikanth_Ganti_Resume.pdf"; // Set the desired file name
+    link.href = resumeUrl;
+    link.setAttribute('download', filename);  // Use the proper filename here
+    document.body.appendChild(link);
     link.click();
+    document.body.removeChild(link);
+    setShowModal(false);
   };
+  
 
   return (
     <nav
-      className={`${
-        styles.paddingX
-      } w-full flex items-center py-5 fixed top-0 z-20 ${
-        scrolled ? "bg-black" : "bg-transparent"
-      }`}
+      className={`${styles.paddingX} w-full flex items-center py-5 fixed top-0 z-20 ${scrolled ? "bg-black" : "bg-transparent"}`}
     >
       <div className='w-full flex justify-between items-center max-w-7xl mx-auto'>
         <Link
@@ -65,72 +89,77 @@ const Navbar = () => {
           {navLinks.map((nav) => (
             <li
               key={nav.id}
-              className={`${
-                active === nav.title ? "text-white" : "text-secondary"
-              } hover:text-white text-[18px] font-medium cursor-pointer`}
-              onClick={() => {
-                setActive(nav.title)}}
+              className={`${active === nav.title ? "text-white" : "text-secondary"} hover:text-white text-[18px] font-medium cursor-pointer`}
+              onClick={() => setActive(nav.title)}
             >
               <a href={`#${nav.id}`}>{nav.title}</a>
             </li>
-            
           ))}
           <li
-            className={`${
-              active === "Resume" ? "text-white" : "text-secondary"
-            } hover:text-white text-[18px] font-medium cursor-pointer`}
-            onClick={() => {
-              setActive("Resume");
-              handleResumeDownload(); // Trigger download when "Resume" is clicked
-            }}
+            className={`${active === "Resume" ? "text-white" : "text-secondary"} hover:text-white text-[18px] font-medium cursor-pointer`}
+            onClick={() => setShowModal(true)}
           >
             Resume
           </li>
         </ul>
 
-        <div className='sm:hidden flex flex-1 justify-end items-center'>
+        {/* Mobile Menu Icon */}
+        <div className='sm:hidden flex items-center menu-toggle'>
           <img
             src={toggle ? close : menu}
             alt='menu'
             className='w-[28px] h-[28px] object-contain'
             onClick={() => setToggle(!toggle)}
           />
+        </div>
 
+        {/* Mobile Menu Dropdown */}
+        {toggle && (
           <div
-            className={`${
-              !toggle ? "hidden" : "flex"
-            } p-6 black-gradient absolute top-20 right-0 mx-4 my-2 min-w-[140px] z-10 rounded-xl`}
+            className='black-gradient absolute top-full right-0 mx-4 my-2 min-w-[140px] z-10 rounded-xl p-6 flex flex-col gap-4 items-start mobile-menu'
+            style={{ position: 'absolute' }}
           >
-            <ul className='list-none flex justify-end items-start flex-1 flex-col gap-4'>
-              {navLinks.map((nav) => (
-                <li
-                  key={nav.id}
-                  className={`font-poppins font-medium cursor-pointer text-[16px] ${
-                    active === nav.title ? "text-white" : "text-secondary"
-                  }`}
-                  onClick={() => {
-                    setToggle(!toggle);
-                    setActive(nav.title);
-                  }}
-                >
-                  <a href={`#${nav.id}`}>{nav.title}</a>
-                </li>
-              ))}
-              <li
-                className={`${
-                  active === "Resume" ? "text-white" : "text-secondary"
-                } hover:text-white text-[16px] font-medium cursor-pointer`}
+            {navLinks.map((nav) => (
+              <a
+                key={nav.id}
+                href={`#${nav.id}`}
+                className={`text-[16px] ${active === nav.title ? "text-white" : "text-secondary"} font-medium cursor-pointer`}
                 onClick={() => {
-                  setToggle(!toggle);
-                  setActive("Resume");
-                  handleResumeDownload(); // Trigger download when "Resume" is clicked
+                  setToggle(false);
+                  setActive(nav.title);
                 }}
               >
-                Resume
-              </li>
-            </ul>
+                {nav.title}
+              </a>
+            ))}
+            <span
+              className={`text-[16px] ${active === "Resume" ? "text-white" : "text-secondary"} font-medium cursor-pointer`}
+              onClick={() => {
+                setToggle(false);
+                setShowModal(true);
+              }}
+            >
+              Resume
+            </span>
           </div>
-        </div>
+        )}
+
+        {/* Modal for selecting resume type to download */}
+        {showModal && (
+          <div ref={modalRef} style={{
+            position: 'fixed',
+            top: '50%',
+            left: '50%',
+            transform: 'translate(-50%, -50%)',
+            backgroundColor: 'rgba(0,0,0,0.85)',
+            padding: '20px',
+            borderRadius: '10px',
+            zIndex: 1000
+          }}>
+            <button onClick={() => handleResumeDownload('sde')} style={{ display: 'block', width: '100%', padding: '10px', marginBottom: '10px', cursor: 'pointer' }}>Download SDE Resume</button>
+            <button onClick={() => handleResumeDownload('ux')} style={{ display: 'block', width: '100%', padding: '10px', cursor: 'pointer' }}>Download FrontEnd Resume</button>
+          </div>
+        )}
       </div>
     </nav>
   );

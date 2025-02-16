@@ -43,6 +43,13 @@ import PP from "./PP.png";
 import ADS from "./ADS.png";
 import SKK from "./SKK.png";
 
+import MunchMates from "./MunchMates.png";
+import FileTransfer from "./File transfer.png";
+import Redactor from "./Redactor.png";
+import IRA from "./IRA.png";
+import UnRedactor from "./Un Redactor.png";
+
+
 export {
   logo,
   backend,
@@ -84,4 +91,9 @@ export {
   PP,
   ADS,
   SKK,
+  MunchMates,
+  FileTransfer,
+  Redactor,
+  IRA,
+  UnRedactor,
 };

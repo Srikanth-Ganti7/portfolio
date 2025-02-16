@@ -35,6 +35,11 @@ import {
     PP,
     ADS,
     SKK,
+    MunchMates,
+    FileTransfer,
+    Redactor,
+    IRA,
+    UnRedactor,
   } from "../assets";
   
   export const navLinks = [
@@ -197,6 +202,15 @@ import {
       company: "Value Momentum",
       //image: "https://randomuser.me/api/portraits/women/4.jpg",
     },
+
+    {
+      testimonial:
+        "I have worked with Srikanth for two years and found him to be a quite dependable resource. Apart from his excellent technical and communication skills, Srikanth also has a keen eye for nuances that make him excel in complex organizational environmental / team dynamics. Excellent team player and is a real asset to any company that he works for. ",
+      name: "Suresh Babu Buddolla",
+      designation: "Engineering Manager",
+      company: "Wipro Ltd",
+      //image: "https://randomuser.me/api/portraits/women/4.jpg",
+    },
     // {
     //   testimonial:
     //     "I've never met a web developer who truly cares about their clients' success like Rick does.",
@@ -216,6 +230,91 @@ import {
   ];
   
   const projects = [
+    {
+      name: "UX Case study - MunchMates",
+      description:
+        " an engaging and community-driven platform where users can discover, review, and recommend local dining spots, enhancing their culinary experiences through shared insights and recommendations.",
+      tags: [
+        {
+          name: "UX Case study",
+          color: "blue-text-gradient",
+        },
+        {
+          name: "Wireframes",
+          color: "green-text-gradient",
+        },
+        // {
+        //   name: "tailwind",
+        //   color: "pink-text-gradient",
+        // },
+      ],
+      image: MunchMates,
+      source_code_link: "https://github.com/Srikanth-Ganti7/cis6930fa24-project1",
+    },
+    
+    {
+      name: "Automatic Text Redactor",
+      description:
+        "Developed a Python-based tool to automatically redact sensitive information from text documents, including names and customizable keywords removing sensitive information with 90%+ precision based on user-defined rule. Leveraged NLP (SpaCy) and regular expressions to accurately detect and replace confidential data, ensuring privacy compliance, increasing detection accuracy by 20% and reducing false positives by 35%. Built a full-stack web app using React.js, Node.js, and Express to allow users to upload, process, and visualize redacted documents in real time, including redaction statistics, word frequency insights, and interactive data visualizations.",
+      tags: [
+        {
+          name: "NLP",
+          color: "blue-text-gradient",
+        },
+        {
+          name: "React.js",
+          color: "green-text-gradient",
+        },
+        // {
+        //   name: "tailwind",
+        //   color: "pink-text-gradient",
+        // },
+      ],
+      image: Redactor,
+      source_code_link: "https://github.com/Srikanth-Ganti7/cis6930fa24-project1",
+    },
+    {
+      name: "Incident Insight Analyzer - A web App",
+      description:
+        "This project is a web application that processes incident reports from PDFs, visualizes the data, and provides insights like clustering, bar graphs, pie charts, and statistics. The application is built using Flask and integrates with various Python libraries for data manipulation and visualization.",
+      tags: [
+        {
+          name: "Flask",
+          color: "blue-text-gradient",
+        },
+        {
+          name: "Scikit-learn",
+          color: "green-text-gradient",
+        },
+        {
+           name: "Pandas",
+           color: "pink-text-gradient",
+       },
+      ],
+      image: IRA,
+      source_code_link: "https://github.com/Srikanth-Ganti7/cis6930fa24-project3",
+    },
+    {
+      name: "Unredactor: Redacted Name Prediction Tool",
+      description:
+        "This project implements the Unredactor, a tool designed to predict redacted names from given contexts in text data. It uses machine learning techniques, including feature extraction and classification, to achieve this goal. The core pipeline involves preprocessing data, extracting features, training a model, and making predictions.",
+      tags: [
+        {
+          name: "Model Training & Prediction",
+          color: "blue-text-gradient",
+        },
+        {
+          name: "Scikit-learn",
+          color: "green-text-gradient",
+        },
+        {
+           name: "Pandas",
+           color: "pink-text-gradient",
+       },
+      ],
+      image: UnRedactor,
+      source_code_link: "https://github.com/Srikanth-Ganti7/cis6930fa24-project2",
+    },
     {
       name: "3D Gator Habitat mapping",
       description:
@@ -238,6 +337,27 @@ import {
       //source_code_link: "https://github.com/",
     },
     {
+      name: "Implementation of FTP client and server with multiple threads",
+      description:
+        "In this project, the application will manage two primary threads: a main thread that handles incoming connections and reads messages, and a writing thread that sends messages and files to a specified port. The program's functionality includes establishing connections, exchanging messages, and transferring files between users.",
+      tags: [
+        {
+          name: "Python",
+          color: "blue-text-gradient",
+        },
+        {
+          name: "Multithreading",
+          color: "green-text-gradient",
+        },
+        // {
+        //   name: "tailwind",
+        //   color: "pink-text-gradient",
+        // },
+      ],
+      image: FileTransfer,
+      source_code_link: "https://github.com/Srikanth-Ganti7/Implementation-of-FTP-client-and-server---file-transfer-between-users",
+    },
+    {
       name: "Productivity Pal",
       description:
         "an innovative application designed to enhance personal productivity by integrating task management with mental health considerations. Productivity Pal offers a holistic solution by incorporating features such as mood and progress tracking, achievement badges, and mindfulness practices.",
@@ -254,9 +374,13 @@ import {
           name: "HCI",
           color: "pink-text-gradient",
         },
+        {
+          name: "UI-UX",
+          color: "green-text-gradient",
+        },
       ],
       image: PP,
-      source_code_link: "https://github.com/",
+      source_code_link: "https://github.com/Srikanth-Ganti7/ProdPal",
     },
     {
       name: "Library Management - Redblack Trees Implementation",
