@@ -147,11 +147,11 @@ import {
       iconBg: "#383E56",
       date: "Dec 2023 - Present",
       points: [
-        "Design and production of various print or interactive projects",
+        "Design and production of over 200+ print/interactive projects",
         "Design for various projects including letters, reports, social media and proposals",
         "Assist with copywriting and editing various communication pieces for the department",
         "Utilize an in-house project management system to provide relevant status updates and ensure the timely completion of projects",
-        "Work with the college’s Office of Communications to ensure all projects align with university branding standards and the college’s storytelling strategy",
+        "Work with the college’s Office of Communications to ensure all projects align with university branding standards and the college’s inclusive and diverse storytelling strategy",
       ],
     },
     {
@@ -161,10 +161,13 @@ import {
       iconBg: "#E6DEDD",
       date: "Sep 2020 - Mar 2023",
       points: [
-        "Developed, created, and track solutions to more than 50 application errors and defects reported using Java, SQL, Gradle tool, establishing API endpoint connections, and Spring Implementation.",
-        "Collaborated with Dev and Infra team, covering 14 tools and 9 modules in project to improve business processes by conducting training sessions on module inter reliability and checking business feature validations.",
-        "Alleviated message transmission process by implementing a route definition this decreased the message transfer time by 50% which is crucial in airlines domain.",
-        "Modified the module to migrate from SVN repository to GIT repository and integrated azure pipelines to enhance reliability.",
+        "Developed queuing and messaging modules for aircraft communications, optimizing Java Spring Boot, Apache Camel, and ActiveMQ to process 10 Million+ messages monthly.",
+        "Engineered a microservice with REST APIs to encrypt, decrypt, and process 100K+ JSON tokens daily, ensuring secure and efficient data transmission via the client gateway.",
+        "Developed a responsive User Interface for a critical airline operations dashboard, enhancing web usability and increasing page interaction efficiency by 70% using React and adhering to User-Centered Design (UCD) principles.",
+        "Configured CI/CD pipelines for legacy modules using Jenkins and Azure DevOps, automating build and deployment processes, reducing deployment time by 40% and accelerating development cycles.",
+        "Collaborated with cross-functional teams to streamline development.",
+        "Resolved over 100+ application defects, achieving a 35% reduction in bug rates within the development cycle and enhancing overall system stability.",
+        "Played a critical role in maintaining 99% system availability post-launch, ensuring smooth transitions by proactively monitoring servers during Go Live and resolving issues swiftly.",
       ],
     },
     {
@@ -186,6 +189,9 @@ import {
       iconBg: "#E6DEDD",
       date: "Jun 2019 - Jun 2019",
       points: [
+        "Designed C++ scripts for telemetry decoding, anomaly detection, and data filtering, enhancing real-time spacecraft data accuracy by 35% and reducing processing latency by 25% for Mars Orbiter tracking via IDSN.",
+        "Developed a full-stack telemetry monitoring system using React.js, Node.js, and WebSockets, enabling real-time spacecraft tracking and improving operational efficiency by 40%.",
+        "Developed signal processing and data compression algorithms, cutting telemetry data redundancy by 45% and improving transmission reliability by 20%, optimizing ground station storage efficiency.",
         "Telemetry Tracking operations, Spacecraft Operations, Scheduling Operations, Flight Dynamics Operations, Computer network support and communication network support. As a part of the Implant Training, we were exposed to the operations of ISTRAC/ISRO and witnessed the workings of numerous satellites.",
         "Analyzed the working of Bangalore Ground Station, Indian Deep Space Network(IDSN), storage facility at IDSN, India's Largest Satellite antennas (32- meter and 18- meter deep space antennas) and also the live tracking of MOM(Mars Orbiter Mission).",
         "Visiting and observing the inner workings of Mission Analysis Room and Mission Control Center.",
@@ -249,7 +255,7 @@ import {
         // },
       ],
       image: MunchMates,
-      source_code_link: "https://github.com/Srikanth-Ganti7/cis6930fa24-project1",
+      source_code_link: "https://github.com/Srikanth-Ganti7",
     },
     
     {
