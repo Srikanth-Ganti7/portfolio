@@ -255,7 +255,7 @@ import {
         // },
       ],
       image: MunchMates,
-      source_code_link: "https://github.com/Srikanth-Ganti7",
+      source_code_link: "https://srikanth-ganti-user-case-study-munchmates.framer.website/",
     },
     
     {
